@@ -1,0 +1,16 @@
+# Header
+menu:
+  Home: /
+  Portfolio: /portfolio
+  About: /about
+
+# Miscellaneous
+google_analytics:
+favicon:
+twitter:
+google_plus:
+fb_admins:
+fb_app_id:
+avatar: /images/header-img.jpg
+
+
