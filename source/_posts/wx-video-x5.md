@@ -16,7 +16,6 @@ categories: 视频
 
 接了一个项目要实现在微信公众号里课程播放，而且还有评论功能，视频需要小窗播放。
 首先公布解决方案：
-<!--more-->
 
 ```
  <video id="my-video" class="video-js" controls preload="auto" width="100%" height="300px"

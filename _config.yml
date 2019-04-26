@@ -86,3 +86,8 @@ deploy:
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 plugins: hexo-generate-feed
+toc:
+  maxDepth: 3
+#  enable: true
+#  number: true
+  slugify: false

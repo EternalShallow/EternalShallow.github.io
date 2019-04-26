@@ -701,7 +701,7 @@ pace_theme: pace-theme-minimal
 # --------------------------------------------------------------
 # add canvas-nest effect
 # see detail from https://github.com/hustcc/canvas-nest.js
-canvas_nest: true
+canvas_nest: false
 
 # three_waves
 three_waves: false
