@@ -4,9 +4,11 @@ title: About Programmer's Novel
 date: 2019-04-26 16:50:41
 tags: [文学,小说,程序员小说]
 copyright: true
+toc_number: true
 categories: [文学,小说]
 comments: true
 toc: true
+abbrlink: f6d1cfff
 description: '山川无尽银河无垠都汇成二进制的数字河流被代码重构,过往英雄都在我脑海眼前...'
 ---
 >本文产生自知乎一话题“怎么写出一本程序员风格的修真小说？”
