@@ -4,7 +4,7 @@ date: 2019-04-25 14:26:07
 tags: [video,视频,前端,X5引擎]
 type: categories
 copyright: true
-categories: 视频
+categories: [前端,视频]
 ---
 
 ***
