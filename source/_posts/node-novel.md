@@ -12,10 +12,10 @@ abbrlink: f6d1cfff
 description: 'async+phantomjs制作nodejs的小说爬虫'
 ---
 
+## async+phantomjs制作nodejs的小说爬虫
 
-# async+phantomjs制作nodejs的小说爬虫
 
-## 内容要点
+### 内容要点
 
 **一步一脚印实现一个爬虫,文章内容较长,建议在pc下阅读**
 
@@ -27,6 +27,7 @@ phantomjs捕获内容 详细介绍通过async.mapLimit并发处理,结合定时�
 
 
 ### 目录结构
+
 
 ```
 .
@@ -44,14 +45,18 @@ phantomjs捕获内容 详细介绍通过async.mapLimit并发处理,结合定时�
 ├── test.js
 ```
 
-
+***
 ### 介绍(有了解可以直接跳过)
+***
+
 关于[PhantomJS](http://www.infoq.com/cn/news/2015/01/phantomjs-webkit-javascript-api)
  首先介绍一下phantomjs
 
 > PhantomJS是一个基于WebKit的服务器端JavaScript API，它基于 BSD开源协议发布。PhantomJS无需浏览器的支持即可实现对Web的支持，且原生支持各种Web标准，如DOM 处理、JavaScript、CSS选择器、JSON、Canvas和可缩放矢量图形SVG。PhantomJS主要是通过JavaScript和CoffeeScript控制WebKit的CSS选择器、可缩放矢量图形SVG和HTTP网络等各个模块。
 
+***
 ### phantomjs的应用场景
+***
 
 >无需浏览器的Web测试：无需浏览器的情况下进行快速的Web测试，且支持很多测试框架，如YUI Test、Jasmine、WebDriver、Capybara、QUnit、Mocha等。
 页面自动化操作：使用标准的DOM API或一些JavaScript框架（如jQuery）访问和操作Web页面。
@@ -71,7 +76,10 @@ phantomjs捕获内容 详细介绍通过async.mapLimit并发处理,结合定时�
 
 ## 实现思路和过程
 
+
 ### 实现思路
+
+
 phantomjs就相当于一个无图形界面的浏览器,那么我们提供连接给phantomjs就意味着我们能获取这个url的内容。
 这次爬虫的内容是希望获取到小说的所有章节以及其内容,直接以笔阁网为例,因为这次爬虫是直接爬笔阁网的。
 我们打开http://www.qu.la/book/5443,
@@ -96,8 +104,9 @@ phantomjs就相当于一个无图形界面的浏览器,那么我们提供连接�
 
 爬虫方面的思路说明到这里
 
-
+***
 ### 实现过程
+***
 
 (请保证node版本高于7.9,本文基于7.10.0)
 (最好先了解es7中async/await 以及child_process)
@@ -178,10 +187,12 @@ let url = encodeURI(`https://www.baidu.com/s?wd="hello"`);
 ```
 
 输出结果
-![](media/14995008770629/14995115113865.jpg)
 
 
+***
 ### 模块实现
+***
+
 **获取所有章节fetchAllChapters.js**
 
 ```
@@ -399,8 +410,9 @@ node fetchChapter.js -u http://www.qu.la/book/5443/3179374.html -f -p
 })()
 
 ```
-
+***
 ### 拓展
+***
 
 
 ```
@@ -415,7 +427,9 @@ node fetchChapter.js -u http://www.qu.la/book/5443/3179374.html -f -p
 
 因为当前页面加载的时候加载了jquery 这个lib,所以这里就可以直接使用了
 
+***
 ### 结合使用
+***
 
 **taskHandler**
 
@@ -594,7 +608,9 @@ if (!program.start || !program.end) {
 
 这里使用async-child-process调起子进程,然后直接获取输出在控制台中的数据作为输出结果,由于async-child-process默认控制台输出的最大字节流是5kb所以要调整最大字节流的限制,不然会报错;
 
+***
 ### 结合async 与计时器实现延迟并发加载
+***
 
 这里先要说一下[async.js](https://github.com/caolan/async)这个库提供了许多控制并发的方法,关于async的demo可以看一下唐大大的[async demo](https://github.com/alsotang/async_demo),里面有许多async method 的使用 🌰
 
@@ -857,12 +873,17 @@ module.exports = {
 
 
 
-
+***
 ### 获取章节保存到本地json文件中
+***
+
+
 这里使用的node的fs文件的fs.writeFile模块
 
-
+***
 ### 反思
+***
+
 书本的章节可以捕获一次保存在/mock/bookInfo.json本地文件中,输入书本后判断书本是否已经捕获过章节了
 
 捕获过就从本地文件/mock/bookInfo.json中获取需要的章节,提供方法检验是否有最新章节,
@@ -873,7 +894,7 @@ module.exports = {
 
 添加phantom proxy 进行代理,这里引出需要写一个抓取代理并测试的服务来提供代理池
 
-
+***
 ### 参考
-
+***
 [本文参考](https://github.com/Sunshine168/fetch-novel)
