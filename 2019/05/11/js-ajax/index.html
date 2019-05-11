@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="DongFei">
 <meta property="og:description" content="前言 一直在用jQuery方法来写ajax请求，用的多了，不免对这其中是怎么实现的产生了兴趣，于是乎， 小弟闲来无聊研究了一下原生实现ajax请求，网上看了很多前辈们的关于ajax请求的封装方法， 也借鉴了很多经验，于是乎就出现了小弟的一个原生JS封装ajax的版本，希望大家看了之后能够明白，下面就是我实现的方法，其中的注释很清晰，方便大家的理解。 实现 新建文件夹 ajax.js 1234567">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-11T02:36:40.543Z">
+<meta property="og:updated_time" content="2019-05-11T02:38:31.317Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="原生JS封装AJAX请求">
 <meta name="twitter:description" content="前言 一直在用jQuery方法来写ajax请求，用的多了，不免对这其中是怎么实现的产生了兴趣，于是乎， 小弟闲来无聊研究了一下原生实现ajax请求，网上看了很多前辈们的关于ajax请求的封装方法， 也借鉴了很多经验，于是乎就出现了小弟的一个原生JS封装ajax的版本，希望大家看了之后能够明白，下面就是我实现的方法，其中的注释很清晰，方便大家的理解。 实现 新建文件夹 ajax.js 1234567">
@@ -347,7 +347,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-05-11T10:36:40+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2019-05-11T10:38:31+08:00">
                 2019-05-11
               </time>
             
@@ -468,77 +468,9 @@
 <p>新建文件  http.js</p>
 <p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import &apos;./ajax&apos;;</span><br><span class="line">//ajax公共方法</span><br><span class="line">export default &#123;</span><br><span class="line">  comAjax(param) &#123;</span><br><span class="line">    _$.ajax(&#123;</span><br><span class="line">      type: param.method || &apos;post&apos;,</span><br><span class="line">      data: param.data,</span><br><span class="line">      async: param.async != false,</span><br><span class="line">      url: param.url || &apos;&apos;,</span><br><span class="line">      contentType: param.contentType ? &apos;application/json&apos; : &apos;&apos;,</span><br><span class="line">      success(data) &#123;  // 成功回调</span><br><span class="line">        return param.success &amp;&amp; param.success(data);</span><br><span class="line">      &#125;,</span><br><span class="line">      error(err) &#123;</span><br><span class="line">        utils.view.dismissLoading(); // 关闭loading</span><br><span class="line">        return param.error &amp;&amp; param.error(err);  // error处理</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <h3><span id="在vue-中的引用-post">在Vue 中的引用---POST</span></h3>
-<p>、、、
-/**
-*
-* @param param 参数
-* @param cb  回调方法
-* @returns {*}
-*/
-apiAppointList(param, cb) {
-return api.comAjax({
-url: <code>url/${param.uid}/${param.id}</code>,
-method: 'post',
-contentType: 'application/json',
-data: JSON.stringify(params),
-success(data) {
-return cb &amp;&amp; cb(data);
-},
-error(err) {
-return utils.toast(err.message);
-},
-});
-},
-getAppointList(){
-utils.view.showLoading();  // 显示loading
-this.apiAppointList(data, result =&gt; {
-utils.view.dismissLoading() // 关闭loading
-if (result.code !== 200) {
-return utils.toast(result.message)
-}
-if (result.data.length &lt; 1){
-utils.toast(&quot;暂无数据&quot;)
-}
-***
-})
-},
-},</p>
-<p>、、、</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">*</span><br><span class="line">* @param param 参数</span><br><span class="line">* @param cb  回调方法</span><br><span class="line">* @returns &#123;*&#125;</span><br><span class="line">*/</span><br><span class="line">apiAppointList(param, cb) &#123;</span><br><span class="line">    return api.comAjax(&#123;</span><br><span class="line">      url: `url/$&#123;param.uid&#125;/$&#123;param.id&#125;`,</span><br><span class="line">      method: &apos;post&apos;,</span><br><span class="line">      contentType: &apos;application/json&apos;,</span><br><span class="line">      data: JSON.stringify(params),</span><br><span class="line">      success(data) &#123;</span><br><span class="line">        return cb &amp;&amp; cb(data);</span><br><span class="line">      &#125;,</span><br><span class="line">      error(err) &#123;</span><br><span class="line">        return utils.toast(err.message);</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;,</span><br><span class="line">getAppointList()&#123;</span><br><span class="line">    utils.view.showLoading();  // 显示loading</span><br><span class="line">    this.apiAppointList(data, result =&gt; &#123;</span><br><span class="line">      utils.view.dismissLoading() // 关闭loading</span><br><span class="line">      if (result.code !== 200) &#123;</span><br><span class="line">        return utils.toast(result.message)</span><br><span class="line">      &#125;</span><br><span class="line">      if (result.data.length &lt; 1)&#123;</span><br><span class="line">        utils.toast(&quot;暂无数据&quot;)</span><br><span class="line">      &#125;</span><br><span class="line">      ***</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
 <h3><span id="在vue-中的引用-get">在Vue 中的引用---GET</span></h3>
-<p>、、、
-/**
-*
-* @param param 参数
-* @param cb  回调方法
-* @returns {*}
-*/
-apiAppointList(param, cb) {
-return api.comAjax({
-url: <code>url/${param.uid}/${param.id}</code>,
-method: 'get',
-success(data) {
-return cb &amp;&amp; cb(data);
-},
-error(err) {
-return utils.toast(err.message);
-},
-});
-},
-getAppointList(){
-utils.view.showLoading();  // 显示loading
-this.apiAppointList(data, result =&gt; {
-utils.view.dismissLoading() // 关闭loading
-if (result.code !== 200) {
-return utils.toast(result.message)
-}
-if (result.data.length &lt; 1){
-utils.toast(&quot;暂无数据&quot;)
-}
-***
-})
-},
-},</p>
-<p>、、、</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> *</span><br><span class="line"> * @param param 参数</span><br><span class="line"> * @param cb  回调方法</span><br><span class="line"> * @returns &#123;*&#125;</span><br><span class="line"> */</span><br><span class="line"> apiAppointList(param, cb) &#123;</span><br><span class="line">     return api.comAjax(&#123;</span><br><span class="line">       url: `url/$&#123;param.uid&#125;/$&#123;param.id&#125;`,</span><br><span class="line">       method: &apos;get&apos;,</span><br><span class="line">       success(data) &#123;</span><br><span class="line">         return cb &amp;&amp; cb(data);</span><br><span class="line">       &#125;,</span><br><span class="line">       error(err) &#123;</span><br><span class="line">         return utils.toast(err.message);</span><br><span class="line">       &#125;,</span><br><span class="line">     &#125;);</span><br><span class="line"> &#125;,</span><br><span class="line"> getAppointList()&#123;</span><br><span class="line">     utils.view.showLoading();  // 显示loading</span><br><span class="line">     this.apiAppointList(data, result =&gt; &#123;</span><br><span class="line">       utils.view.dismissLoading() // 关闭loading</span><br><span class="line">       if (result.code !== 200) &#123;</span><br><span class="line">         return utils.toast(result.message)</span><br><span class="line">       &#125;</span><br><span class="line">       if (result.data.length &lt; 1)&#123;</span><br><span class="line">         utils.toast(&quot;暂无数据&quot;)</span><br><span class="line">       &#125;</span><br><span class="line">       ***</span><br><span class="line">     &#125;)</span><br><span class="line">   &#125;,</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure></p>
 <h3><span id="结语">结语</span></h3>
 <p>封装以上的方法主要是因为原生js传递请求参数比较麻烦，于是乎改良了一下，希望对大家有帮助，喜欢我的文章的话，就给我来个喜欢吧，</p>
 
@@ -560,6 +492,38 @@ utils.toast(&quot;暂无数据&quot;)
 	<div>
 		  
 			
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://ituac-blog-1252741530.cos.ap-beijing.myqcloud.com/zxm/github/sweetalert.main.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://ituac-blog-1252741530.cos.ap-beijing.myqcloud.com/zxm/github/sweetalert.css">
+
+  <p><span>本文标题:</span>原生JS封装AJAX请求</p>
+  <p><span>文章作者:</span>zhangdongfei</p>
+  <p><span>发布时间:</span>2019年05月11日 - 10:32:14</p>
+  <p><span>最后更新:</span>2019年05月11日 - 10:38:31</p>
+  <p><span>原始链接:</span><a href="/2019/05/11/js-ajax/" title="原生JS封装AJAX请求">http://yoursite.com/2019/05/11/js-ajax/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/05/11/js-ajax/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
 		  
 	</div>
     
@@ -808,7 +772,7 @@ utils.toast(&quot;暂无数据&quot;)
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">在Vue 中的二次封装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">在Vue 中的引用---POST</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">在Vue 中的引用---GET</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-text">结语</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">在Vue 中的二次封装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">在Vue 中的引用---POST</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">在Vue 中的引用---GET</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">结语</span></a></li></ol></div>
             
 
           </div>
