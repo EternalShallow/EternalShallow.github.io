@@ -1,16 +1,17 @@
 ---
-layout: '[js]'
+
 title: 原生JS封装AJAX请求
-date: 2019-04-26 16:50:41
-tags:[前端,js,ajax]
+date: 2019-05-11 10:32:14
+tags: [前端,js,ajax]
+type: categories
 categories: [前端,js]
 copyright: true
 toc_number: true
 comments: true
 toc: true
 abbrlink: f6d1cfff
-description: '原生JS封装AJAX请求'
 ---
+
 
 ### 前言
 
@@ -282,7 +283,7 @@ export default {
 ### 在Vue 中的引用---POST
 
 
-、、、
+```
     /**
     *
     * @param param 参数
@@ -321,13 +322,15 @@ export default {
 
 
 
-、、、
+
+```
 
 
 ### 在Vue 中的引用---GET
 
 
-、、、
+
+```
    /**
     *
     * @param param 参数
@@ -361,7 +364,8 @@ export default {
       },
     },
 
-、、、
+
+```
 
 
 ### 结语
