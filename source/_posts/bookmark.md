@@ -17,6 +17,9 @@ description: '俗话说，人在职场走哪能不添狗，虽说这是职场化
 
    总之，能自己动手的，别叨叨，自己动手丰衣足食
 
+
+[**项目地址**](https://github.com/EternalShallow/vue-test-demo/tree/master/src/pages/bookmark)
+
 ### 书签
 
 就拿常用的一些图标来说，自己完全可以实现嘛，自己动手喽。
